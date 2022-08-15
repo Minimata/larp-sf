@@ -2,7 +2,7 @@
   <div>
     <Suspense>
       <BasicInput title="Welcome">
-        <Asynchronous :time="0"> </Asynchronous>
+        <Asynchronous></Asynchronous>
       </BasicInput>
       <template #fallback>
         <span>Loading...</span>

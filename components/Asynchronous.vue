@@ -1,19 +1,18 @@
 <script setup lang="ts">
 import { useQuery, gql } from "@urql/vue";
 
-const { time } = defineProps({
-  time: {
-    type: Number,
-    required: true,
-  },
-});
+const { time } = defineProps<{
+  time?: number;
+}>();
 
-// Add in a delay to simulate loading data
-await new Promise((resolve: any) => {
-  setTimeout(() => {
-    resolve();
-  }, time);
-});
+if (time) {
+  // Add in a delay to simulate loading data
+  await new Promise((resolve: any) => {
+    setTimeout(() => {
+      resolve();
+    }, time);
+  });
+}
 
 const from = ref(0);
 const GetArticles = gql`
